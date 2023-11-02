@@ -13,7 +13,9 @@ import { FaSearch } from 'react-icons/fa'
 const Nav = ({ account, isAdmin }) => {
     const { setAccount } = useContext(MainContext)
     const [isUserHaveProfile, setIsUserHaveProfile] = useState(false)
+    const [searchQuery, setSearchQuery] = useState('')
     const ProfileText = account?.name?.charAt(0)
+    
 
     const navigate = useNavigate()
 
@@ -81,6 +83,9 @@ const Nav = ({ account, isAdmin }) => {
     }
 
 
+    const handleSearch = (e) => {
+        e.preventDefault();
+    }
 
 
 
@@ -147,17 +152,17 @@ const Nav = ({ account, isAdmin }) => {
                 {/* button */}
             </div>
             <div className='w-full h-16 bg-blue-700 sticky top-0 left-0 z-[-1]  flex items-center justify-center'>
-                <form className='flex justify-center items-center  gap-5 w-full mx-auto '>
+                <form onSubmit={handleSearch} className='flex justify-center items-center  gap-5 w-full mx-auto '>
 
-                   <div className='w-full  flex items-center justify-center sm:mx-16 mx-4 lg:gap-10 gap-4'>
-                   <div className='lg:w-2/5  w-full '>
-                        <input type="text" className='h-full w-full rounded-lg px-2 py-3' />
-                    </div>
+                    <div className='w-full  flex items-center justify-center sm:mx-16 mx-4 lg:gap-10 gap-4'>
+                        <div className='lg:w-2/5  w-full '>
+                            <input type="text" className='h-full w-full rounded-lg px-2 py-3' value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
+                        </div>
 
-                    <div className='h-full '>
-                        <button type='submit' className='text-2xl text-center text-white font-bold'><FaSearch /></button>
+                        <div className='h-full '>
+                            <button type='submit' className='text-2xl text-center text-white font-bold'><FaSearch /></button>
+                        </div>
                     </div>
-                   </div>
                 </form>
 
             </div>

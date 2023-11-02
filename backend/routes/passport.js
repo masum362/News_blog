@@ -64,13 +64,9 @@ passport.serializeUser((user, done) => {
 });
 
 passport.deserializeUser(async (id, done) => {
-  console.log({ id });
-  try {
-    const user = await User.findById(id);
-    done(null, user);
-  } catch (error) {
-    done(null, error);
-  }
+  await User.findById(id).then( (user) => {
+    return done(null, user);
+  }).catch( (err) => {done(null , err)});
 });
 
 export const checkAuth = (req, res, next) => {

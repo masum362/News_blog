@@ -64,8 +64,10 @@ console.log({LoggedIn})
     <div className='w-[90%] m-auto'>
       {isloading ? <Router>
         <Nav account={account} isAdmin={isAdmin} />
+        <div className='mt-12'>
         <Routes>
          <Route path='/' element={<Home posts={posts} />} />
+         <Route path='/search/' element={<Home posts={posts} />} />
           <Route path='/category/:id'  element={<Allnews />} />
           <Route path='/signup' element={Object.keys(account).length !== 0 ? <Navigate to={'/'}/> : <Register />} />
           <Route path='/signin' element={Object.keys(account).length !== 0 ? <Navigate to={'/'}/> : <Login /> } />
@@ -83,6 +85,7 @@ console.log({LoggedIn})
           <Route path='/comments/:type' element={isAdmin ? <Comments  account={account} /> : <Navigate to={'/error'}/>  } />  
           <Route path='/profile' element={LoggedIn ? <Profile account={account} /> : <Navigate to={'/error'}/>  } />  
         </Routes>
+        </div>
         <Footer />
       </Router> : <Loader />}
     </div>
