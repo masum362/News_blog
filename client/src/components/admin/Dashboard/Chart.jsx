@@ -8,6 +8,7 @@ import React from 'react'
 
 const Chart = () => {
 
+	
 	const options = {
 		theme: "light2",
 		animationEnabled: true,
