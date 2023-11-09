@@ -133,6 +133,7 @@ export const register = async (req, res) => {
 
 export const Login = async (req, res) => {
   try {
+    console.log(req.isAuthenticated())
     return res.status(200).json(req.session.passport.user);
   } catch (error) {
     return res.status(500).json({ message: "Something went wrong" });
@@ -143,6 +144,7 @@ export const getUser = async (req, res) => {
   console.log('getuser called')
   const user = req.user;
   try {
+    console.log(req.isAuthenticated())
     return res.status(200).json(user);
   } catch (error) {
     return res.status(500).json({ message: "Something went wrong" });
