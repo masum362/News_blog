@@ -67,7 +67,7 @@ const handleDelete = async(id) => {
   return (
     <div className='mt-[100px] grid sm:grid-cols-1  md:grid-cols-3 lg:grid-cols-5 gap-4 '>
         <div className='cols-start-1 cols-end-2  p-2 bg-slate-700'> 
-            <Sidebar />
+            <Sidebar comments={comments} />
         </div>
         <Comment CommentType={params.type} comments={comments} handleApprove={handleApprove} handleDelete={handleDelete}/>
        

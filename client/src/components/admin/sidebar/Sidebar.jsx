@@ -12,7 +12,7 @@ import axios from 'axios';
 import { MainContext } from '../../context/PostContext';
 
 
-const Sidebar = () => {
+const Sidebar = ({comments}) => {
 
   const { account, setAccount } = useContext(MainContext)
   const [ approvedComments,setAppprovedComments ] = useState([])
@@ -22,7 +22,7 @@ const Sidebar = () => {
 
   const getApproveComments = async () => {
     await axios.get(`${base_url}/getcomments/approved`, { withCredentials: true }).then(res => {
-      console.log(res.data)
+      console.log('approved comment',res.data)
       setAppprovedComments(res.data);
     }).catch(err => {
       console.log(err);
@@ -68,8 +68,8 @@ console.log(account.name)
           <div className="dropdown w-[100%] sm:w-[100%] md:w-[100%] xl:w-[100%] lg:w-[100%] ">
             <button className="dropbtn font-medium bg-white p-2 text-lg text-black mb-2 br-5 rounded-md "> <span >  <i className='flex icon-div '> <FaComments />  Comments </i> </span>  <span  > <AiOutlineCaretDown /> </span> </button>
             <div className="dropdown-content">
-              <Link to={'/comments/approved'}>Approved Comments <span className='bg-red-600 p-2 text-white text-sm'>{approvedComments.length}</span></Link>
-              <Link to={'/comments/unapproved'}>Unapproved Comments</Link>
+              <Link to={'/comments/approved'}>Approved Comments <span className='bg-red-600 p-2 text-white text-sm'>{comments?.length}</span></Link>
+              <Link to={'/comments/unapproved'}>Unapproved Comments <span className='bg-red-600 p-2 text-white text-sm'>{comments?.length}</span></Link>
             </div>
           </div>
 

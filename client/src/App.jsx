@@ -22,6 +22,7 @@ import EditPost from './components/admin/posts/EditPost'
 import EditUser from './components/admin/users/EditUser'
 import Comments from './components/admin/comment/Comments'
 import Profile from './components/profile/profile'
+import Search from './components/search/Search'
 
 
 function App() {
@@ -64,6 +65,7 @@ console.log({LoggedIn})
     <div className='w-[90%] m-auto'>
       {isloading ? <Router>
         <Nav account={account} isAdmin={isAdmin} />
+        <Search />
         <div className='mt-12'>
         <Routes>
          <Route path='/' element={<Home posts={posts} />} />

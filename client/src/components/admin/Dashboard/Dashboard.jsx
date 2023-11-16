@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import './Dashboard.css'
-import Chart from './../Dashboard/Chart'
+// import Chart from './../Dashboard/Chart'
 import Sidebar from '../sidebar/Sidebar'
 import Social_visitors from './Social_visitors'
 import adminImg from '../../../assets/hasan/hasan.jpg'
@@ -78,7 +78,7 @@ console.log(users)
         <div className=' grid lg:grid-cols-3  gap-5  p-5 mt-[20px]'>
           <div className=' lg:col-span-2 p-5 bg-white '>
             <h1> Chart</h1>
-            <Chart />
+            {/* <Chart /> */}
 
           </div>
 

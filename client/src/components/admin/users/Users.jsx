@@ -32,12 +32,6 @@ console.log({user})
             }else{
                 setUser([])
             }
-            Swal.fire(
-                'AllUser!',
-                ' Alluser  delate has a Successfullay .',
-                'success'
-            )
-            
         }).catch(err => {
             console.log(err);
         })
