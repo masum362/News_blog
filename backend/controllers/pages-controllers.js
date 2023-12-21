@@ -68,6 +68,7 @@ export const getComments = async (req, res) => {
 console.log({type})
   try {
     const comments = await CommentModel.find({ isApproved: type });
+    console.log({comments})
     return res.status(200).json(comments);
   } catch (error) {
     console.log(error)

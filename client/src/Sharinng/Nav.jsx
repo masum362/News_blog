@@ -7,8 +7,8 @@ import { useContext, useEffect, useState } from 'react';
 import { base_url } from '../../base_url/Base_url';
 import axios from 'axios';
 import Swal from 'sweetalert2'
-import { FaSearch } from 'react-icons/fa'
-import Search from '../components/search/Search';
+// import { FaSearch } from 'react-icons/fa'
+// import Search from '../components/search/Search';
 
 
 const Nav = ({ account, isAdmin }) => {
@@ -152,7 +152,7 @@ const Nav = ({ account, isAdmin }) => {
                 </ul>
                 {/* button */}
             </div>
-            <Search />
+            {/* <Search /> */}
 
         </div>
     );

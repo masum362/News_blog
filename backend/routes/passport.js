@@ -64,6 +64,7 @@ passport.serializeUser((user, done) => {
 });
 
 passport.deserializeUser(async (id, done) => {
+  console.log({id})
   await User.findById(id).then( (user) => {
     return done(null, user);
   }).catch( (err) => {done(null , err)});
@@ -71,9 +72,13 @@ passport.deserializeUser(async (id, done) => {
 
 export const checkAuth = (req, res, next) => {
   try {
+    console.log('checkAuth CALLING');
     if (!req.isAuthenticated()) {
+
+      console.log(req.isAuthenticated())
       return res.status(404).json({ message: "user not authorized" });
     }
+    console.log('authentication' , req.isAuthenticated())
     next();
   } catch (error) {
     return res.status(500).json({ message: error.message });
